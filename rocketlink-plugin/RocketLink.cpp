@@ -49,7 +49,7 @@ void RocketLink::OnViewportTick()
 
 bool RocketLink::ShouldSendUpdates()
 {
-	return gameWrapper->IsInGame() && ws_connections->size() > 0 && !gameWrapper->GetCamera().IsNull();
+	return (gameWrapper->IsInGame()||gameWrapper->IsInOnlineGame()) && ws_connections->size() > 0 && !gameWrapper->GetCamera().IsNull();
 }
 
 json RocketLink::GetCurrentPositioningData()
