@@ -1,0 +1,40 @@
+name: MSBuild
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Clone this repo
+      uses: actions/checkout@v2
+      with:
+        submodules: true
+        
+    - name: Create BakkesMod folder
+      run: mkdir bakkesmod
+        
+    - name: Clone BakkesMod SDK
+      uses: actions/checkout@v2
+      with: 
+        repository: bakkesmodorg/BakkesModSDK
+        path: bakkesmod/bakkesmodsdk
+        
+    - name: Create BakkesMod folder and set registry key
+      working-directory: ./bakkesmod
+      run: REG ADD HKEY_CURRENT_USER\Software\BakkesMod\AppPath /v BakkesModPath /t REG_SZ /d (Get-Item .).FullName /f
+        
+
+    - name: Add MSBuild to PATH
+      uses: microsoft/setup-msbuild@v1
+
+    - name: Build
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: msbuild
+      
+    - name: Upload DLL Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: RocketLink.dll
+        path: x64\Release\RocketLink.dll
