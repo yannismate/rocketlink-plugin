@@ -80,6 +80,14 @@ json RocketLink::GetCurrentPositioningData()
 		{
 			data["self_id"] = playerId;
 			data["self_name"] = playerName;
+			if (!pri.IsSpectator()) 
+			{ 
+				data["self_team"] = pri.GetTeamNum();
+			}
+			else {
+				//Use in client to set to spectator
+				data["self_team"] = -1;
+			}
 			continue;
 		}
 		if (pri.IsSpectator() || pri.GetTeamNum() == 255) {continue;}
@@ -106,6 +114,7 @@ json RocketLink::GetCurrentPositioningData()
 		playerObject["y"] = newY;
 		playerObject["z"] = newZ;
 		playerObject["distance"] = dist;
+		playerObject["team"] = pri.GetTeamNum();
 
 		data["players"].push_back(playerObject);
 	}
