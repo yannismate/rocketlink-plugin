@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <BakkesModPath>$(registry:HKEY_CURRENT_USER\Software\BakkesMod\AppPath@BakkesModPath)</BakkesModPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_PropertySheetDisplayName>BakkesMod</_PropertySheetDisplayName>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <PostBuildEvent>
+      <Command>"$(BakkesModPath)\bakkesmodsdk\bakkesmod-patch.exe" "$(TargetPath)"</Command>
+    </PostBuildEvent>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(BakkesModPath)\bakkesmodsdk\include</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="BakkesModPath">
+      <Value>$(BakkesModPath)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

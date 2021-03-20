@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Plugin Code">
+      <UniqueIdentifier>{2fead4fe-7948-459d-b857-148eb45e38e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Extra Files">
+      <UniqueIdentifier>{f458a400-5f5c-488f-8e2a-1b513969d339}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="RocketLink.cpp">
+      <Filter>Plugin Code</Filter>
+    </ClCompile>
+    <ClCompile Include="WebSocketServer.cpp">
+      <Filter>Plugin Code</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="RocketLink.h">
+      <Filter>Plugin Code</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
