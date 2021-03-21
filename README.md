@@ -16,7 +16,7 @@ This plugin runs a WebSocket server on port 49124 (configurable through the cvar
             "distance": 1000,
             "id":"PLAYERID",
             "name": "PLAYERNAME",
-			"team": 1,
+            "team": 1,
             "__comment__": "This is the relative XYZ position of the other player to your own camera",
             "x": 0,
             "y": 0,
@@ -25,6 +25,6 @@ This plugin runs a WebSocket server on port 49124 (configurable through the cvar
     ],
     "self_id":"YOUR OWN PLAYERID",
     "self_name":"YOUR OWN PLAYER NAME",
-	"self_team": 1
+    "self_team": 1
 }
 ```
