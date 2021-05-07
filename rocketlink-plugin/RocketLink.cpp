@@ -4,7 +4,7 @@
 #include <cmath>
 #include "bakkesmod/wrappers/GameObject/Stats/StatEventWrapper.h"
 
-BAKKESMOD_PLUGIN(RocketLink, "RocketLink", "1.0.0", PLUGINTYPE_THREADED)
+BAKKESMOD_PLUGIN(RocketLink, "RocketLink", "1.0.1", PLUGINTYPE_THREADED)
 
 void RocketLink::onLoad()
 {
